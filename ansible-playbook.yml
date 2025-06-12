@@ -1,0 +1,15 @@
+---
+- name: Simple Test Playbook
+  hosts: target
+  gather_facts: false
+
+  tasks:
+    - name: Task1 Ping the remote host
+      ansible.builtin.ping:
+      
+    - name: Task2 Copy file hosts with permissions
+      ansible.builtin.copy:
+        src: ./files
+        dest: /home/apap/Desktop/Ansible
+        mode: '0644'
+
