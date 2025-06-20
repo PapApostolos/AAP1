@@ -1,0 +1,18 @@
+# Example: Play1
+---
+- name: My first Play
+  hosts: db_hosts
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+      tags:
+        - connectivity
+        - sanity_check
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Connected to host:
+         '{{ ansible_hostname }}' ({{ inventory_hostname }})"
+      tags:
+        - diagnostics
+        - reporting
