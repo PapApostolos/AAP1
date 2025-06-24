@@ -1,7 +1,7 @@
 # Example: Play1
 ---
 - name: My first Play
-  hosts: db_hosts
+  hosts: dev_hosts
   tasks:
     - name: Ping my hosts
       ansible.builtin.ping:
