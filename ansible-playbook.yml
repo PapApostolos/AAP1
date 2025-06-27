@@ -1,6 +1,6 @@
 ---
 - name: Simple Test Playbook
-  hosts: target
+  hosts: db_hosts
   gather_facts: false
 
   tasks:
@@ -10,6 +10,6 @@
     - name: Task2 Copy file hosts with permissions
       ansible.builtin.copy:
         src: ./files
-        dest: /home/apap/Desktop/Ansible
+        dest: /home/apap/Desktop
         mode: '0644'
 
