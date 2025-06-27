@@ -1,6 +1,6 @@
 ---
 - name: Simple Test Playbook
-  hosts: db_hosts
+  hosts: db_hosts, dev_hosts
   gather_facts: false
 
   tasks:
