@@ -1,4 +1,4 @@
-# Example: Play1
+# Example: Core-Banking Exp1
 ---
 - name: My first Play
   hosts: core_banking
