@@ -1,31 +1,18 @@
 # Example: Play1
 ---
 - name: My first Play
-  hosts: core_banking
-  become: yes
-  vars:
-    app_user: corebank
-    packages_to_install:
-      - nano
-      - curl
-
+  hosts: dev_hosts
   tasks:
-
-    - name: Check SSH connectivity
+    - name: Ping my hosts
       ansible.builtin.ping:
-      tags: [connectivity]
+      tags:
+        - connectivity
+        - sanity_check
 
-    - name: Create application user
-      ansible.builtin.user:
-        name: "{{ app_user }}"
-        shell: /bin/bash
-        state: present
-      tags: [users]
-
-    - name: Install essential packages (only on app servers)
-      ansible.builtin.package:
-        name: "{{ item }}"
-        state: present
-      loop: "{{ packages_to_install }}"
-      when: "'core_banking_app' in group_names"
-      tags: [packages]
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Connected to host:
+         '{{ ansible_hostname }}' ({{ inventory_hostname }})"
+      tags:
+        - diagnostics
+        - reporting

@@ -1,6 +1,6 @@
 # Example: Core-Banking Exp1
----
-- name: My first Play
+
+- name: Core Banking Initial Setup
   hosts: core_banking
   become: yes
   vars:
@@ -8,9 +8,7 @@
     packages_to_install:
       - nano
       - curl
-
-  tasks:
-
+  tasks:                                                                                                                      
     - name: Check SSH connectivity
       ansible.builtin.ping:
       tags: [connectivity]
